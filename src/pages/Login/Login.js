@@ -13,7 +13,7 @@ import LottieView from "lottie-react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import backPage from "../../../assets/images/backPage.svg";
 
-const Login = () => {
+const Login = ({ navigation }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLowerHalfVisible, setLowerHalfVisible] = useState(true);
@@ -35,12 +35,14 @@ const Login = () => {
     return () => {
       keyboardDidShowListener.remove();
       keyboardDidHideListener.remove();
+     
     };
   }, []);
 
   const handleSubmit = () => {
     console.log("Email: ", email);
     console.log("Password: ", password);
+    navigation.navigate('Home');
   };
 
   return (
